@@ -18,7 +18,7 @@ function Home(props) {
     e.preventDefault()
     localStorage.removeItem('data');
     localStorage.removeItem('token');
-    props.setMessage(localStorage.getItem('data'));
+    props.setData(null)
   }
 
 

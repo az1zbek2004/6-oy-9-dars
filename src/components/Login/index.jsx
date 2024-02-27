@@ -5,7 +5,6 @@ function Login(props) {
   const emailRef = useRef();
   const passwordRef = useRef();
   const [hasError, setHasError] = useState(false)   
-  const [token, setToken] = useState(localStorage.getItem('token'))
 
   function validate(emailRef, passwordRef) {
     
@@ -37,7 +36,6 @@ function Login(props) {
       if (localStorage.getItem('data')) {
         let data = JSON.parse(localStorage.getItem('data')) 
         if (data.email == emailRef.current.value && data.password == passwordRef.current.value) {
-          setToken(`QpwL5tke4Pnpja7X${data.id}`)
           props.setToken(`QpwL5tke4Pnpja7X${data.id}`)
           localStorage.setItem('token', JSON.stringify(`QpwL5tke4Pnpja7X${data.id}`))
         } else {
@@ -47,10 +45,9 @@ function Login(props) {
     }
   }
 
-  function handleClick(e) {
-    e.preventDefault()
+  function handleClick() {
     localStorage.removeItem('data');
-    props.setData(localStorage.getItem('data'));
+    props.setdata1(localStorage.getItem('data'));
   }
 
   return (
